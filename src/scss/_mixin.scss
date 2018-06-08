@@ -1,0 +1,30 @@
+@mixin font($size, $color) {
+    font-family: 'Roboto-Medium';
+    font-size: $size;
+    color: $color;
+}
+
+@mixin title {
+    @include font(24px, $black);
+}
+
+@mixin subtitle {
+    @include font(20px, $black);
+}
+
+@mixin paragragh {
+    @include font(16px, $black);
+}
+
+@mixin remark {
+    @include font(16px, $dark_gray);
+}
+
+@mixin placeholder {
+    @include font(16px, $dark_gray);
+}
+
+@mixin status {
+    @include font(24px, $gray);
+    font-style: italic;
+}

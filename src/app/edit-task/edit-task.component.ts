@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-edit-task',
@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-task.component.scss']
 })
 export class EditTaskComponent implements OnInit {
-
-  constructor() { }
+  @Input() task: Task;
 
   ngOnInit() {
   }
+
+  toggleFavorite() {
+    this.task.isFavorite = !this.task.isFavorite;
+  }
+
+  editing() {
+
+  }
+  constructor() { }
 
 }

@@ -1,3 +1,17 @@
-<p>
-  edit-task works!
-</p>
+<mat-card class="edit-task" [ngClass]="{completed: task.isCompleted, favorite: task.isFavorite}" (click)="editing()">
+  <input type="checkbox" [(ngModel)]="task.isCompleted">
+  <div class="content">
+    <span class="title">{{task.title}}</span>
+    <div class="function-group">
+      <span class="fa-star" [ngClass]="{'fas': task.isFavorite, 'far': !task.isFavorite}" (click)="toggleFavorite()"></span>
+      <span class="fas fa-pencil-alt"></span>
+    </div>
+    <div class="icon-group" *ngIf="!task.isCompleted">
+      <span class="far fa-calendar-alt" *ngIf="!!task.deadline">
+        {{ task.deadline | date:'MM/dd' }}
+      </span>
+      <span class="far fa-file" *ngIf="!!task.files"></span>
+      <span class="far fa-comment-dots" *ngIf="!!task.comment"></span>
+    </div>
+  </div>
+</mat-card>
