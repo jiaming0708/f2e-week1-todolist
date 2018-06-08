@@ -1,12 +1,14 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
-import { TaskItemComponent } from './task-item/task-item.component';
-import { EditTaskComponent } from './edit-task/edit-task.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddTaskComponent } from './add-task/add-task.component';
-import { LayoutComponent } from './layout/layout.component';
+import { AppComponent } from './app.component';
+import { CoreModule } from './core/core.module';
 import { EditContentComponent } from './edit-content/edit-content.component';
+import { EditTaskComponent } from './edit-task/edit-task.component';
+import { LayoutComponent } from './layout/layout.component';
+import { TaskItemComponent } from './task-item/task-item.component';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { EditContentComponent } from './edit-content/edit-content.component';
     EditContentComponent
   ],
   imports: [
-    BrowserModule
+    BrowserAnimationsModule,
+    BrowserModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

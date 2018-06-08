@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-task.component.scss']
 })
 export class AddTaskComponent implements OnInit {
-
-  constructor() { }
-
   ngOnInit() {
   }
 
+  editing() {
+    // TODO: change to edit mode
+  }
+
+  constructor() { }
 }
