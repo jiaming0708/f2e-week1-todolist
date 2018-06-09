@@ -10,10 +10,12 @@ import {
   MatDatepickerModule,
   MatExpansionModule,
   MatButtonModule,
-  MAT_LABEL_GLOBAL_OPTIONS
+  MAT_LABEL_GLOBAL_OPTIONS,
+  MatTabsModule
 } from '@angular/material';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { FormsModule } from '@angular/forms';
+import { StatusPipe } from './status.pipe';
 
 @NgModule({
   imports: [
@@ -28,7 +30,8 @@ import { FormsModule } from '@angular/forms';
     MatDatepickerModule,
     MatMomentDateModule,
     MatExpansionModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTabsModule
   ],
   exports: [
     MatFormFieldModule,
@@ -41,10 +44,15 @@ import { FormsModule } from '@angular/forms';
     MatDatepickerModule,
     MatMomentDateModule,
     MatExpansionModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTabsModule,
+    StatusPipe
   ],
   providers: [
     {provide: MAT_LABEL_GLOBAL_OPTIONS, useValue: {float: 'never'}}
+  ],
+  declarations: [
+    StatusPipe
   ]
 })
 export class CoreModule { }

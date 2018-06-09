@@ -6,15 +6,21 @@
   background-color: $light_gray;
 
   .mat-expansion-panel-header {
-    transition: transform 0.2s;
+    // transition: transform 0.2s;
 
-    &:hover {
-      transform: scale(1.1);
-    }
+    // &:hover {
+    //   transform: scale(1.1);
+    // }
   }
 
   .favorite {
     background-color: $light_orange;
+  }
+
+  &.mat-expanded{
+    .fa-pencil-alt{
+      color: $blue;
+    }
   }
 
   &.completed {
@@ -105,6 +111,10 @@
 
     .mat-warn{
       background-color: $white;
+    }
+
+    .mat-primary{
+      background-color: $blue;
     }
   }
 }

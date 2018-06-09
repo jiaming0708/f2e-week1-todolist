@@ -1,0 +1,6 @@
+@import "~src/scss/variable";
+@import "~src/scss/mixin";
+
+.count{
+    @include status;
+}

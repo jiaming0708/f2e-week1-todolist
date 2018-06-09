@@ -4,10 +4,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddTaskComponent } from './add-task/add-task.component';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { EditContentComponent } from './edit-content/edit-content.component';
 import { EditTaskComponent } from './edit-task/edit-task.component';
 import { LayoutComponent } from './layout/layout.component';
 import { TaskItemComponent } from './task-item/task-item.component';
+import { TaskListComponent } from './task-list/task-list.component';
 
 
 @NgModule({
@@ -17,7 +17,7 @@ import { TaskItemComponent } from './task-item/task-item.component';
     EditTaskComponent,
     AddTaskComponent,
     LayoutComponent,
-    EditContentComponent
+    TaskListComponent
   ],
   imports: [
     BrowserAnimationsModule,

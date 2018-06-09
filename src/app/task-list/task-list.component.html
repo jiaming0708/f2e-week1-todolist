@@ -1,0 +1,5 @@
+<app-add-task></app-add-task>
+<app-edit-task *ngFor="let item of getTasks$ | async" [task]="item"></app-edit-task>
+<div class="count">
+  {{(getTasks$ | async | status:taskStatus) + ' tasks left'}}
+</div>

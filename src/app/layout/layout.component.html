@@ -1,3 +1,11 @@
-<p>
-  layout works!
-</p>
+<mat-tab-group>
+  <mat-tab label="My Tasks">
+    <app-task-list [taskStatus]="0"></app-task-list>
+  </mat-tab>
+  <mat-tab label="In Progress">
+    <app-task-list [taskStatus]="1"></app-task-list>
+  </mat-tab>
+  <mat-tab label="Completed">
+    <app-task-list [taskStatus]="2"></app-task-list>
+  </mat-tab>
+</mat-tab-group>
