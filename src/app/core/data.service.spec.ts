@@ -1,9 +1,8 @@
-import { TestBed, inject } from '@angular/core/testing';
+import { inject, TestBed } from '@angular/core/testing';
 
 import { DataService } from './data.service';
-import { Status } from './status.enum';
-import { of } from 'rxjs';
 import { Task } from './task';
+import { TaskStatus } from './task-status.enum';
 
 describe('DataService', () => {
   const list: Task[] = [
@@ -38,9 +37,9 @@ describe('DataService', () => {
   }));
 
   it('should get all task', inject([DataService], (service: DataService) => {
-    spyOnProperty(service, 'tasks', 'get').and.returnValue(list);
+    service.tasks = list;
 
-    service.getTasks(Status.All)
+    service.getTasks(TaskStatus.All)
       .subscribe(tasks => {
         let actual = tasks.filter(p => !p.isCompleted).length;
         expect(actual).toEqual(1);
@@ -50,9 +49,9 @@ describe('DataService', () => {
   }));
 
   it('should get only inprogress', inject([DataService], (service: DataService) => {
-    spyOnProperty(service, 'tasks', 'get').and.returnValue(list);
+    service.tasks = list;
 
-    service.getTasks(Status.InProgress)
+    service.getTasks(TaskStatus.InProgress)
       .subscribe(tasks => {
         let actual = tasks.filter(p => !p.isCompleted).length;
         expect(actual).toEqual(1);
@@ -62,9 +61,9 @@ describe('DataService', () => {
   }));
 
   it('should get only completed', inject([DataService], (service: DataService) => {
-    spyOnProperty(service, 'tasks', 'get').and.returnValue(list);
+    service.tasks = list;
 
-    service.getTasks(Status.Completed)
+    service.getTasks(TaskStatus.Completed)
       .subscribe(tasks => {
         let actual = tasks.filter(p => !p.isCompleted).length;
         expect(actual).toEqual(0);

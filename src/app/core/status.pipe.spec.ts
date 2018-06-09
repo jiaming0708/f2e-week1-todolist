@@ -1,6 +1,6 @@
 import { StatusPipe } from './status.pipe';
-import { Status } from './status.enum';
 import { Task } from './task';
+import { TaskStatus } from './task-status.enum';
 
 describe('WithoutCompletedPipe', () => {
   it('create an instance', () => {
@@ -32,7 +32,7 @@ describe('WithoutCompletedPipe', () => {
     ];
 
     const expected = 1;
-    const actual = pipe.transform(list, Status.All);
+    const actual = pipe.transform(list, TaskStatus.All);
 
     expect(actual).toEqual(expected);
   });
@@ -61,7 +61,7 @@ describe('WithoutCompletedPipe', () => {
     ];
 
     const expected = 1;
-    const actual = pipe.transform(list, Status.Completed);
+    const actual = pipe.transform(list, TaskStatus.Completed);
 
     expect(actual).toEqual(expected);
   });
@@ -71,7 +71,7 @@ describe('WithoutCompletedPipe', () => {
     const list: Task[] = undefined;
 
     const expected = 0;
-    const actual = pipe.transform(list, Status.Completed);
+    const actual = pipe.transform(list, TaskStatus.Completed);
 
     expect(actual).toEqual(expected);
   });

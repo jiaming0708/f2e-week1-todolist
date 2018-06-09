@@ -1,30 +1,24 @@
 import { Injectable } from '@angular/core';
-import { Status } from './status.enum';
-import { Observable, of, from } from 'rxjs';
-import { map, filter, toArray } from 'rxjs/operators';
+import { Observable, from } from 'rxjs';
+import { filter, toArray } from 'rxjs/operators';
 import { Task } from './task';
+import { TaskStatus } from './task-status.enum';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  private _tasks: Task[];
-  public get tasks(): Task[] {
-    return this._tasks;
-  }
-  public set tasks(value: Task[]) {
-    this._tasks = value;
-  }
-  getTasks(status: Status): Observable<Task[]> {
+  tasks: Task[];
+  getTasks(status: TaskStatus): Observable<Task[]> {
     return from(this.tasks)
       .pipe(
       filter(p => {
         switch (status) {
-          case Status.All:
+          case TaskStatus.All:
             return true;
-          case Status.Completed:
+          case TaskStatus.Completed:
             return p.isCompleted;
-          case Status.InProgress:
+          case TaskStatus.InProgress:
             return !p.isCompleted;
         }
       }),
@@ -33,6 +27,25 @@ export class DataService {
   }
 
   constructor() {
-    this.tasks = [];
+    this.tasks = [
+      {
+        id: 0,
+        isCompleted: true,
+        isFavorite: true,
+        comment: 'test',
+        files: [],
+        title: 'Type Something Here baby!',
+        deadline: '2018/06/08 20:00:00'
+      },
+      {
+        id: 0,
+        isCompleted: false,
+        isFavorite: true,
+        comment: 'test',
+        files: [],
+        title: 'Type Something Here baby!',
+        deadline: '2018/06/08 20:00:00'
+      }
+    ];
   }
 }

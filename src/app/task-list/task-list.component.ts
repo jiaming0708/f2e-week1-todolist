@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Status } from '../core/status.enum';
 import { DataService } from '../core/data.service';
 import { Observable } from 'rxjs';
 import { Task } from '../core/task';
+import { TaskStatus } from '../core/task-status.enum';
 
 @Component({
   selector: 'app-task-list',
@@ -10,7 +10,7 @@ import { Task } from '../core/task';
   styleUrls: ['./task-list.component.scss']
 })
 export class TaskListComponent implements OnInit {
-  @Input() taskStatus: Status;
+  @Input() taskStatus: TaskStatus;
   getTasks$: Observable<Task[]>;
 
   ngOnInit() {

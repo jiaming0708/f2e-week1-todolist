@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Status } from '../core/status.enum';
+import { TaskStatus } from '../core/task-status.enum';
 
 @Component({
   selector: 'app-layout',
@@ -7,9 +7,8 @@ import { Status } from '../core/status.enum';
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent implements OnInit {
-  status = Status;
+  status = TaskStatus;
   ngOnInit() {
-    console.log(this.status);
   }
   constructor() { }
 
