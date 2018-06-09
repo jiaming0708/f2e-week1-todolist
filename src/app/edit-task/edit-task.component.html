@@ -1,62 +1,62 @@
-<mat-expansion-panel class="edit-task" [ngClass]="{completed: task.isCompleted}" hideToggle="true">
-  <mat-expansion-panel-header [ngClass]="{favorite: task.isFavorite}">
+<mat-card class="edit-task" [ngClass]="{completed: task.isCompleted, 'simple-view': !task.openDetail}">
+  <mat-card-title class="header" [ngClass]="{favorite: task.isFavorite}">
     <input type="checkbox" [(ngModel)]="task.isCompleted">
-    <div class="content">
-      <span class="title">{{task.title}}</span>
-      <div class="function-group">
-        <mat-icon class="fa-star" [ngClass]="{'fas': task.isFavorite, 'far': !task.isFavorite}" (click)="toggleFavorite()"></mat-icon>
-        <mat-icon fontSet="fas" fontIcon="fa-pencil-alt"></mat-icon>
+    <span class="title">{{task.title}}</span>
+    <div class="function-group">
+      <mat-icon class="fa-star" [ngClass]="{'fas': task.isFavorite, 'far': !task.isFavorite}" (click)="toggleFavorite()"></mat-icon>
+      <mat-icon fontSet="fas" fontIcon="fa-pencil-alt"></mat-icon>
+    </div>
+    <div class="icon-group" *ngIf="!task.isCompleted">
+      <mat-icon fontSet="far" fontIcon="fa-calendar-alt" *ngIf="!!task.deadline">
+        {{ task.deadline | date:'MM/dd' }}
+      </mat-icon>
+      <mat-icon fontSet="far" fontIcon="fa-file" *ngIf="!!task.files"></mat-icon>
+      <mat-icon fontSet="far" fontIcon="fa-comment-dots" *ngIf="!!task.comment"></mat-icon>
+    </div>
+  </mat-card-title>
+  <mat-card-content class="content">
+    <div class="row">
+      <div class="row-title">
+        <mat-icon fontSet="far" fontIcon="fa-calendar-alt"></mat-icon>
+        Deadline
       </div>
-      <div class="icon-group" *ngIf="!task.isCompleted">
-        <mat-icon fontSet="far" fontIcon="fa-calendar-alt" *ngIf="!!task.deadline">
-          {{ task.deadline | date:'MM/dd' }}
-        </mat-icon>
-        <mat-icon fontSet="far" fontIcon="fa-file" *ngIf="!!task.files"></mat-icon>
-        <mat-icon fontSet="far" fontIcon="fa-comment-dots" *ngIf="!!task.comment"></mat-icon>
+      <mat-form-field class="row-content">
+        <input type="text" matInput placeholder="yyyy/mm/dd" [(ngModel)]="task.deadline" />
+      </mat-form-field>
+      <!-- <mat-form-field>
+        <input type="text" matInput placeholder="hh:mm" />
+      </mat-form-field> -->
+    </div>
+    
+    <div class="row">
+      <div class="row-title">
+        <mat-icon fontSet="far" fontIcon="fa-file"></mat-icon>
+        File
+      </div>
+      <div class="row-content">
+        <mat-icon fontSet="fas" fontIcon="fa-plus-square"></mat-icon>
       </div>
     </div>
-  </mat-expansion-panel-header>
-
-  <div>
-    <div>
-      <mat-icon fontSet="far" fontIcon="fa-calendar-alt"></mat-icon>
-      Deadline
+    
+    <div class="row">
+      <div class="row-title">
+        <mat-icon fontSet="far" fontIcon="fa-comment-dots"></mat-icon>
+        Comment
+      </div>
+      <mat-form-field class="row-content">
+        <textarea matInput placeholder="Type your memo here…" [(ngModel)]="task.comment">
+        </textarea>
+      </mat-form-field>
     </div>
-    <mat-form-field>
-      <input type="text" matInput placeholder="yyyy/mm/dd" [(ngModel)]="task.deadline" />
-    </mat-form-field>
-    <mat-form-field>
-      <input type="text" matInput placeholder="hh:mm" />
-    </mat-form-field>
-  </div>
-
-  <div>
-    <div>
-      <mat-icon fontSet="far" fontIcon="fa-file"></mat-icon>
-      File
-    </div>
-    <mat-icon fontSet="fas" fontIcon="fa-plus-square"></mat-icon>
-  </div>
-
-  <div class="comment">
-    <div>
-      <mat-icon fontSet="far" fontIcon="fa-comment-dots"></mat-icon>
-      Comment
-    </div>
-    <mat-form-field>
-      <textarea matInput placeholder="Type your memo here…" [(ngModel)]="task.comment">
-      </textarea>
-    </mat-form-field>
-  </div>
-
-  <mat-action-row>
-    <button mat-button color="warn">
-      <mat-icon fontSet="fas" fontIcon="fa-times"></mat-icon>
-      Cancel
-    </button>
-    <button mat-raised-button color="primary">
-      <mat-icon fontSet="fas" fontIcon="fa-plus"></mat-icon>
-      Save
-    </button>
-  </mat-action-row>
-</mat-expansion-panel>
+  </mat-card-content>
+  <mat-card-footer class="button-group">
+      <button mat-button color="warn">
+        <mat-icon fontSet="fas" fontIcon="fa-times"></mat-icon>
+        Cancel
+      </button>
+      <button mat-raised-button color="primary">
+        <mat-icon fontSet="fas" fontIcon="fa-plus"></mat-icon>
+        Save
+      </button>
+  </mat-card-footer>
+</mat-card>

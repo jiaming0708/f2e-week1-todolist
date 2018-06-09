@@ -1,4 +1,5 @@
-<mat-card class="add-task" (click)="editing()">
+<mat-card class="add-task" (click)="editing()" *ngIf="!task">
   <mat-icon fontSet="fas" fontIcon="fa-plus"></mat-icon>
   Add Task
 </mat-card>
+<app-edit-task isCreate="true" *ngIf="task" [task]="task"></app-edit-task>
