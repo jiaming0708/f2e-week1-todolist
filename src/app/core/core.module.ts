@@ -1,6 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule, MatSelectModule } from '@angular/material';
+import {
+  MatCardModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatSelectModule,
+  MatGridListModule,
+  MatDatepickerModule,
+  MatExpansionModule,
+  MatButtonModule,
+  MAT_LABEL_GLOBAL_OPTIONS
+} from '@angular/material';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -11,7 +23,12 @@ import { FormsModule } from '@angular/forms';
     MatSelectModule,
     MatInputModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    MatGridListModule,
+    MatDatepickerModule,
+    MatMomentDateModule,
+    MatExpansionModule,
+    MatButtonModule
   ],
   exports: [
     MatFormFieldModule,
@@ -19,8 +36,15 @@ import { FormsModule } from '@angular/forms';
     MatSelectModule,
     MatInputModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    MatGridListModule,
+    MatDatepickerModule,
+    MatMomentDateModule,
+    MatExpansionModule,
+    MatButtonModule
   ],
-  declarations: []
+  providers: [
+    {provide: MAT_LABEL_GLOBAL_OPTIONS, useValue: {float: 'never'}}
+  ]
 })
 export class CoreModule { }

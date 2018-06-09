@@ -3,14 +3,17 @@
 
 .edit-task {
   @include title;
-  padding: 24px 32px;
-  transition: transform .2s;
+  background-color: $light_gray;
 
-  &:hover{
-    transform: scale(1.1);
+  .mat-expansion-panel-header {
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
-  &.favorite{
+  .favorite {
     background-color: $light_orange;
   }
 
@@ -41,12 +44,12 @@
     margin-right: 0;
   }
 
-  .title{
-      width: 248px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      display: inline-block;
+  .title {
+    width: 248px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
   }
 
   .function-group {
@@ -54,16 +57,16 @@
 
     mat-icon {
       cursor: pointer;
-      
-      & + mat-icon{
-          margin-left: 32px;
+
+      & + mat-icon {
+        margin-left: 32px;
       }
     }
 
-    .fa-star{
-        &.fas{
-            color: $orange;
-        }
+    .fa-star {
+      &.fas {
+        color: $orange;
+      }
     }
   }
 
@@ -73,6 +76,35 @@
 
     mat-icon + mat-icon {
       margin-left: 16px;
+    }
+  }
+
+  .mat-expansion-panel-body{
+    input,
+    textarea{
+      background-color: $white;
+    }
+
+    .comment{
+      textarea{
+        width: 445px;
+        height: 120px;
+      }
+    }
+  }
+
+  .mat-action-row{
+    padding: 0;
+    justify-content: space-around;
+    border-top: 0;
+    border-top-style: none;
+
+    button{
+      width: 100%;
+    }
+
+    .mat-warn{
+      background-color: $white;
     }
   }
 }
