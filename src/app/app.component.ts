@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatIconRegistry } from '@angular/material';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   task: Task;
   ngOnInit() {
+    this.matIconRegistry.registerFontClassAlias('fas', 'fas');
+    this.matIconRegistry.registerFontClassAlias('far', 'far');
+
     this.task = {
       id: 0,
       isCompleted: true,
@@ -18,4 +22,5 @@ export class AppComponent implements OnInit {
       deadline: '2018/06/08 20:00:00'
     };
   }
+  constructor(private matIconRegistry: MatIconRegistry) {}
 }

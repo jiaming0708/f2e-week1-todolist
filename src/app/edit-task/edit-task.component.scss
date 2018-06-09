@@ -52,10 +52,10 @@
   .function-group {
     float: right;
 
-    span {
+    mat-icon {
       cursor: pointer;
       
-      & + span{
+      & + mat-icon{
           margin-left: 32px;
       }
     }
@@ -71,7 +71,7 @@
     @include remark;
     margin-top: 15px;
 
-    span + span {
+    mat-icon + mat-icon {
       margin-left: 16px;
     }
   }

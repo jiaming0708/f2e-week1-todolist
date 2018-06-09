@@ -3,15 +3,15 @@
   <div class="content">
     <span class="title">{{task.title}}</span>
     <div class="function-group">
-      <span class="fa-star" [ngClass]="{'fas': task.isFavorite, 'far': !task.isFavorite}" (click)="toggleFavorite()"></span>
-      <span class="fas fa-pencil-alt"></span>
+      <mat-icon class="fa-star" [ngClass]="{'fas': task.isFavorite, 'far': !task.isFavorite}" (click)="toggleFavorite()"></mat-icon>
+      <mat-icon fontSet="fas" fontIcon="fa-pencil-alt"></mat-icon>
     </div>
     <div class="icon-group" *ngIf="!task.isCompleted">
-      <span class="far fa-calendar-alt" *ngIf="!!task.deadline">
+      <mat-icon fontSet="far" fontIcon="fa-calendar-alt" *ngIf="!!task.deadline">
         {{ task.deadline | date:'MM/dd' }}
-      </span>
-      <span class="far fa-file" *ngIf="!!task.files"></span>
-      <span class="far fa-comment-dots" *ngIf="!!task.comment"></span>
+      </mat-icon>
+      <mat-icon fontSet="far" fontIcon="fa-file" *ngIf="!!task.files"></mat-icon>
+      <mat-icon fontSet="far" fontIcon="fa-comment-dots" *ngIf="!!task.comment"></mat-icon>
     </div>
   </div>
 </mat-card>
