@@ -1,4 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter
+} from '@angular/core';
 import { Task } from '../core/task';
 
 @Component({
@@ -9,6 +15,8 @@ import { Task } from '../core/task';
 export class EditTaskComponent implements OnInit {
   @Input() task: Task;
   @Input() mode: 'create' | 'edit';
+  @Output() cancel = new EventEmitter();
+  @Output() save = new EventEmitter();
 
   ngOnInit() {
   }
@@ -19,6 +27,15 @@ export class EditTaskComponent implements OnInit {
 
   toggleDetail() {
     this.task.openDetail = !this.task.openDetail;
+  }
+
+  cancelEdit() {
+    this.task.openDetail = false;
+    this.cancel.emit();
+  }
+  saveEdit() {
+    this.task.openDetail = false;
+    this.save.emit(this.task);
   }
   constructor() { }
 

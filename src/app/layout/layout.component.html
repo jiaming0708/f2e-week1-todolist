@@ -1,11 +1,11 @@
-<mat-tab-group>
+<mat-tab-group (selectedTabChange)="selectedTabChange($event)">
   <mat-tab label="My Tasks">
-    <app-task-list [taskStatus]="0"></app-task-list>
+    <app-task-list [taskStatus]="0" [reload$]="reload$"></app-task-list>
   </mat-tab>
   <mat-tab label="In Progress">
-    <app-task-list [taskStatus]="1"></app-task-list>
+    <app-task-list [taskStatus]="1" [reload$]="reload$"></app-task-list>
   </mat-tab>
   <mat-tab label="Completed">
-    <app-task-list [taskStatus]="2"></app-task-list>
+    <app-task-list [taskStatus]="2" [reload$]="reload$"></app-task-list>
   </mat-tab>
 </mat-tab-group>

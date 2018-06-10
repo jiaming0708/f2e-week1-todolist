@@ -18,7 +18,8 @@ describe('WithoutCompletedPipe', () => {
         comment: 'test',
         files: [],
         title: 'Type Something Here baby!',
-        deadline: '2018/06/08 20:00:00'
+        deadline: '2018/06/08 20:00:00',
+        openDetail: false
       },
       {
         id: 0,
@@ -27,7 +28,8 @@ describe('WithoutCompletedPipe', () => {
         comment: 'test',
         files: [],
         title: 'Type Something Here baby!',
-        deadline: '2018/06/08 20:00:00'
+        deadline: '2018/06/08 20:00:00',
+        openDetail: false
       }
     ];
 
@@ -47,7 +49,8 @@ describe('WithoutCompletedPipe', () => {
         comment: 'test',
         files: [],
         title: 'Type Something Here baby!',
-        deadline: '2018/06/08 20:00:00'
+        deadline: '2018/06/08 20:00:00',
+        openDetail: false
       },
       {
         id: 0,
@@ -56,7 +59,8 @@ describe('WithoutCompletedPipe', () => {
         comment: 'test',
         files: [],
         title: 'Type Something Here baby!',
-        deadline: '2018/06/08 20:00:00'
+        deadline: '2018/06/08 20:00:00',
+        openDetail: false
       }
     ];
 

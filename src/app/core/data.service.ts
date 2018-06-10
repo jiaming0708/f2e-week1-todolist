@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, from } from 'rxjs';
-import { filter, toArray } from 'rxjs/operators';
+import { Observable, from, of } from 'rxjs';
+import { filter, toArray, find } from 'rxjs/operators';
 import { Task } from './task';
 import { TaskStatus } from './task-status.enum';
 
@@ -26,6 +26,28 @@ export class DataService {
       );
   }
 
+  create(task: Task): Observable<number> {
+    const inserTask = { ...task };
+    inserTask.id = this.getMaxId();
+    this.tasks.push(inserTask);
+    return of(inserTask.id);
+  }
+
+  edit(task: Task): Observable<boolean> {
+    const findTask = this.tasks.find(p => p.id === task.id);
+    findTask.title = task.title;
+    findTask.deadline = task.deadline;
+    findTask.comment = task.comment;
+    findTask.isFavorite = task.isFavorite;
+    findTask.isCompleted = task.isCompleted;
+    return of(true);
+  }
+
+  private getMaxId(): number {
+    const maxId = Math.max(...this.tasks.map(p => p.id));
+    return maxId + 1;
+  }
+
   constructor() {
     this.tasks = [
       {
@@ -39,7 +61,7 @@ export class DataService {
         openDetail: false
       },
       {
-        id: 0,
+        id: 1,
         isCompleted: false,
         isFavorite: true,
         comment: '',

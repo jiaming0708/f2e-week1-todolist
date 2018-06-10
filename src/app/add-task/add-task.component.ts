@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Task } from '../core/task';
 
 @Component({
@@ -8,6 +8,7 @@ import { Task } from '../core/task';
 })
 export class AddTaskComponent implements OnInit {
   task: Task;
+  @Output() create = new EventEmitter();
   ngOnInit() {
   }
 
@@ -22,6 +23,15 @@ export class AddTaskComponent implements OnInit {
       deadline: '',
       openDetail: true
     };
+  }
+
+  cancelCreate() {
+    this.task = undefined;
+  }
+
+  saveCreate($evnet) {
+    this.create.emit($evnet);
+    this.task = undefined;
   }
 
   constructor() { }

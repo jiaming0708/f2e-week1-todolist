@@ -2,7 +2,7 @@
   <mat-card-title class="header" [ngClass]="{favorite: task.isFavorite}">
     <input type="checkbox" [(ngModel)]="task.isCompleted">
     <span class="title" *ngIf="!task.openDetail">{{task.title}}</span>
-    <input type="text" [(ngModel)]="task.title" *ngIf="task.openDetail">
+    <input type="text" [(ngModel)]="task.title" *ngIf="task.openDetail" placeholder="Type Something Here…">
     <div class="function-group">
       <mat-icon class="fa-star" [ngClass]="{'fas': task.isFavorite, 'far': !task.isFavorite}" (click)="toggleFavorite()"></mat-icon>
       <mat-icon fontSet="fas" fontIcon="fa-pencil-alt" (click)="toggleDetail()"></mat-icon>
@@ -51,13 +51,13 @@
     </div>
   </mat-card-content>
   <mat-card-footer class="button-group" *ngIf="task.openDetail">
-      <button mat-button color="warn">
+      <button mat-button color="warn" (click)="cancelEdit()">
         <mat-icon fontSet="fas" fontIcon="fa-times"></mat-icon>
         Cancel
       </button>
-      <button mat-raised-button color="primary">
+      <button mat-raised-button color="primary" (click)="saveEdit()">
         <mat-icon fontSet="fas" fontIcon="fa-plus"></mat-icon>
-        Save
+        {{mode === 'create'? 'Create' : 'Save'}}
       </button>
   </mat-card-footer>
 </mat-card>

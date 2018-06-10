@@ -6,14 +6,12 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { EditTaskComponent } from './edit-task/edit-task.component';
 import { LayoutComponent } from './layout/layout.component';
-import { TaskItemComponent } from './task-item/task-item.component';
 import { TaskListComponent } from './task-list/task-list.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    TaskItemComponent,
     EditTaskComponent,
     AddTaskComponent,
     LayoutComponent,
