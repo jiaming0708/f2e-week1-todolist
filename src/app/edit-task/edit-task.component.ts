@@ -8,6 +8,7 @@ import { Task } from '../core/task';
 })
 export class EditTaskComponent implements OnInit {
   @Input() task: Task;
+  @Input() mode: 'create' | 'edit';
 
   ngOnInit() {
   }
@@ -16,8 +17,8 @@ export class EditTaskComponent implements OnInit {
     this.task.isFavorite = !this.task.isFavorite;
   }
 
-  editing() {
-
+  toggleDetail() {
+    this.task.openDetail = !this.task.openDetail;
   }
   constructor() { }
 

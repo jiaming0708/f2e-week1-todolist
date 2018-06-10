@@ -1,20 +1,21 @@
 <mat-card class="edit-task" [ngClass]="{completed: task.isCompleted, 'simple-view': !task.openDetail}">
   <mat-card-title class="header" [ngClass]="{favorite: task.isFavorite}">
     <input type="checkbox" [(ngModel)]="task.isCompleted">
-    <span class="title">{{task.title}}</span>
+    <span class="title" *ngIf="!task.openDetail">{{task.title}}</span>
+    <input type="text" [(ngModel)]="task.title" *ngIf="task.openDetail">
     <div class="function-group">
       <mat-icon class="fa-star" [ngClass]="{'fas': task.isFavorite, 'far': !task.isFavorite}" (click)="toggleFavorite()"></mat-icon>
-      <mat-icon fontSet="fas" fontIcon="fa-pencil-alt"></mat-icon>
+      <mat-icon fontSet="fas" fontIcon="fa-pencil-alt" (click)="toggleDetail()"></mat-icon>
     </div>
-    <div class="icon-group" *ngIf="!task.isCompleted">
+    <div class="icon-group" *ngIf="!task.isCompleted || !task.openDetail">
       <mat-icon fontSet="far" fontIcon="fa-calendar-alt" *ngIf="!!task.deadline">
         {{ task.deadline | date:'MM/dd' }}
       </mat-icon>
-      <mat-icon fontSet="far" fontIcon="fa-file" *ngIf="!!task.files"></mat-icon>
+      <mat-icon fontSet="far" fontIcon="fa-file" *ngIf="!!task.files && task.files.length > 0"></mat-icon>
       <mat-icon fontSet="far" fontIcon="fa-comment-dots" *ngIf="!!task.comment"></mat-icon>
     </div>
   </mat-card-title>
-  <mat-card-content class="content">
+  <mat-card-content class="content" *ngIf="task.openDetail">
     <div class="row">
       <div class="row-title">
         <mat-icon fontSet="far" fontIcon="fa-calendar-alt"></mat-icon>
@@ -49,7 +50,7 @@
       </mat-form-field>
     </div>
   </mat-card-content>
-  <mat-card-footer class="button-group">
+  <mat-card-footer class="button-group" *ngIf="task.openDetail">
       <button mat-button color="warn">
         <mat-icon fontSet="fas" fontIcon="fa-times"></mat-icon>
         Cancel

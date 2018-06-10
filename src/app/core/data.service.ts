@@ -35,16 +35,18 @@ export class DataService {
         comment: 'test',
         files: [],
         title: 'Type Something Here baby!',
-        deadline: '2018/06/08 20:00:00'
+        deadline: '2018/06/08 20:00:00',
+        openDetail: false
       },
       {
         id: 0,
         isCompleted: false,
         isFavorite: true,
-        comment: 'test',
+        comment: '',
         files: [],
         title: 'Type Something Here baby!',
-        deadline: '2018/06/08 20:00:00'
+        deadline: '',
+        openDetail: false
       }
     ];
   }

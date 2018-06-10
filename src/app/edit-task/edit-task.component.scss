@@ -8,8 +8,14 @@
   margin: 24px 8px;
 
   &.simple-view {
-    .header:hover {
-      transform: scale(1.05);
+    .header {
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      .fa-pencil-alt {
+        color: $black;
+      }
     }
   }
 
@@ -32,10 +38,8 @@
       background-color: $light_orange;
     }
 
-    &.mat-expanded {
-      .fa-pencil-alt {
-        color: $blue;
-      }
+    .fa-pencil-alt {
+      color: $blue;
     }
 
     input[type="checkbox"] {
@@ -83,8 +87,10 @@
         width: 66px;
       }
 
-      mat-icon + mat-icon {
-        margin-left: 16px;
+      mat-icon {
+        & + mat-icon {
+          margin-left: 16px;
+        }
       }
     }
   }
@@ -104,7 +110,7 @@
     }
 
     .row {
-      & + .row{
+      & + .row {
         margin-top: 24px;
       }
 

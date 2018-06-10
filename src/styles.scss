@@ -1,11 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-.full-width{
-    width: 100%;
+@import "~src/scss/variable";
+.full-width {
+  width: 100%;
 }
 
-app-layout{
-    width: 50%;
-    display: block;
-    margin: 0 auto;
+body {
+  background-color: $light_dark_gray;
+  font-family: "Roboto-Medium";
+}
+
+app-layout {
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+mat-card.mat-card {
+  padding: 0;
+  margin: 24px 8px;
 }

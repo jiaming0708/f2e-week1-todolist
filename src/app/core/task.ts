@@ -6,4 +6,5 @@ export interface Task {
     files: any[];
     comment: string;
     isCompleted: boolean;
+    openDetail: boolean;
 }

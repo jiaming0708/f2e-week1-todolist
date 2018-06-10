@@ -19,7 +19,8 @@ export class AddTaskComponent implements OnInit {
       comment: '',
       files: [],
       title: '',
-      deadline: ''
+      deadline: '',
+      openDetail: true
     };
   }
 

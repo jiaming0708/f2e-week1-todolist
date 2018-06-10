@@ -20,7 +20,8 @@ export class AppComponent implements OnInit {
       comment: 'test',
       files: [],
       title: 'Type Something Here baby!',
-      deadline: '2018/06/08 20:00:00'
+      deadline: '2018/06/08 20:00:00',
+      openDetail: false
     };
   }
   constructor(private matIconRegistry: MatIconRegistry) {}
