@@ -12,12 +12,33 @@ body {
 }
 
 app-layout {
-  width: 50%;
-  display: block;
-  margin: 0 auto;
+  .mat-tab-header{
+    background-color: $blue;
+  }
+
+  .mat-tab-label{
+    color: $dark_blue;
+    opacity: 1;
+
+    &.mat-tab-label-active{
+      color: $white;
+    }
+  }
+
+  .mat-tab-body-content{
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+  }
 }
 
 mat-card.mat-card {
   padding: 0;
   margin: 24px 8px;
+}
+
+mat-tab-group{
+  .mat-tab-labels{
+    justify-content: center;
+  }
 }

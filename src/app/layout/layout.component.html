@@ -1,4 +1,4 @@
-<mat-tab-group (selectedTabChange)="selectedTabChange($event)">
+<mat-tab-group (selectedTabChange)="selectedTabChange($event)" class="header">
   <mat-tab label="My Tasks">
     <app-task-list [taskStatus]="0" [reload$]="reload$"></app-task-list>
   </mat-tab>
