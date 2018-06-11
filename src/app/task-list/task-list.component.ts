@@ -1,9 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { mergeMap } from 'rxjs/operators';
 import { DataService } from '../core/data.service';
-import { Observable, combineLatest, BehaviorSubject } from 'rxjs';
 import { Task } from '../core/task';
 import { TaskStatus } from '../core/task-status.enum';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-task-list',
@@ -16,12 +16,10 @@ export class TaskListComponent implements OnInit {
   getTasks$: Observable<Task[]>;
 
   ngOnInit() {
-    this.getTasks$ = combineLatest(
-      this.service.getTasks(this.taskStatus),
-      this.reload$
-    ).pipe(
-      map(p => p['0'])
-    );
+    this.getTasks$ = this.reload$
+      .pipe(
+        mergeMap(p => this.service.getTasks(this.taskStatus))
+      );
   }
 
   save($event: Task) {
