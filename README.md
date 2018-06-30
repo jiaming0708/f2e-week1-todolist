@@ -1,5 +1,7 @@
 # F2eWeek1Todolist
 
+https://hexschool.github.io/THE_F2E_Design/todolist/
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
 ## Development server
